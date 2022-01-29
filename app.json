@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lagrange_builder",
-    "slug": "lagrange_builder",
+    "name": "infinite_lagrange_builder",
+    "slug": "infinite_lagrange_builder",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
