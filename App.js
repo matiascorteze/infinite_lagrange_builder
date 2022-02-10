@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, Button, View, FlatList, Modal } from 'react-native';
+import AddItem from './components/AddItem/AddItem';
+import Item from './components/Item/Item';
+import DeleteModal from './components/DeleteModal/DeleteModal';
 
 export default function App() {
   const [textInput, setTextInput] = useState('')
@@ -38,27 +40,15 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          value={textInput}
-          onChangeText={handleChangeText}
-        />
-        <Button
-          onPress={handleOnPress}
-          title="Add"
-        />
-      </View>
+      <AddItem
+        textInput={textInput}
+        handleOnPress={handleOnPress}
+        handleChangeText={handleChangeText}
+      />
 
       <FlatList
         data={itemList}
-        renderItem={({ item }) => (
-            <View style={styles.item}>
-              <Text>{item.value}</Text>
-              <Button onPress={handleOnDelete(item)} title="X" />
-            </View>
-          )
-        }
+        renderItem={({ item }) => <Item item={item} onPress={handleOnDelete(item)} />}
         keyExtractor={item => item.id}
       />
 
@@ -77,31 +67,12 @@ export default function App() {
         </View>
       </Modal>
 
-      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-  },
-  input: {
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    flex: 1,
-    marginRight: 20,
-  },
-  item: {
-    padding: 20,
-    marginVertical: 20,
-    borderColor: 'black',
-    borderWidth: 1, 
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    padding: 50,
   }
 });
