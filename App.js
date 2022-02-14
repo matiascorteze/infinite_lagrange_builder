@@ -16,14 +16,18 @@ export default function App() {
   }
 
   const handleOnPress = () => {
-    setTextInput('')
-    setItemList([
-      ...itemList,
-      {
-        value: textInput,
-        id: Math.random().toString(),
-      },
-    ])
+    if (textInput == '' || textInput == ' ') {
+      setTextInput('')
+    } else {
+      setTextInput('')
+      setItemList([
+        ...itemList,
+        {
+          value: textInput,
+          id: Math.random().toString(),
+        },
+      ])
+    }
   }
 
   const handleOnDelete = (item) => () => {
@@ -40,6 +44,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.headline}>
+        Infinite Lagrange Builder
+      </Text>
       <AddItem
         textInput={textInput}
         handleOnPress={handleOnPress}
@@ -52,20 +59,11 @@ export default function App() {
         keyExtractor={item => item.id}
       />
 
-      <Modal animationType='slide' visible={modalVisible}>
-        <View>
-          <View>
-            <Text>¿Está seguro que desea eliminar?</Text>
-            <Text>{itemSelected.value}</Text>
-          </View>
-          <View>
-            <Button
-              onPress={handleConfirmDelete}
-              title="CONFIRMAR"
-            />
-          </View>
-        </View>
-      </Modal>
+      <DeleteModal
+        modalVisible={modalVisible}
+        itemSelected={itemSelected}
+        handleConfirmDelete={handleConfirmDelete}
+      />
 
     </View>
   );
@@ -73,6 +71,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 50,
+    padding: 30,
+    paddingTop: 70,
+  },
+  headline: {
+    fontSize: 30,
+    color: '#003049'
   }
 });

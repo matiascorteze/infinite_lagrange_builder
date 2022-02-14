@@ -9,6 +9,9 @@ function AddItem({ textInput, handleChangeText, handleOnPress}) {
       style={styles.input}
       value={textInput}
       onChangeText={handleChangeText}
+      placeholder="Ship"
+      maxLength={20}
+      autoCapitalize={"words"}
     />
     <Button
       onPress={handleOnPress}

@@ -1,19 +1,23 @@
 import React from "react";
 import { Text, Button, View, Modal } from "react-native";
+import styles from "../DeleteModal/styles";
 
 
-function DeleteModal({ props }) {
-  console.log(props);
+function DeleteModal({ modalVisible, itemSelected, handleConfirmDelete }) {
+
   return (
-    <Modal animationType='slide' visible={props.modalVisible}>
-      <View>
+    <Modal 
+      animationType='slide' 
+      visible={modalVisible}
+      presentationStyle= 'overFullScreen'
+      >
+      <View style={styles.container}>
         <View>
-          <Text>¿Está seguro que desea eliminar?</Text>
-          {/* <Text>{props.itemSelected.value}</Text> */}
+          <Text style={styles.textBody}>Are you sure you want to delete: {itemSelected.value}?</Text>
         </View>
         <View>
           <Button
-            onPress={props.handleConfirmDelete}
+            onPress={handleConfirmDelete}
             title="CONFIRMAR"
           />
         </View>
