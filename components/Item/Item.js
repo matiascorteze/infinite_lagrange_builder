@@ -1,8 +1,8 @@
 import {useState} from "react";
-import styles from "../Item/styles";
-import { Text, Button, View, TouchableOpacity } from "react-native";
+import styles from "./styles";
+import { Text, View, TouchableOpacity } from "react-native";
 
-function Item({ item, onPress }) {
+function Item({ item }) {
 
   const [available, setAvailable] = useState(false)
 
@@ -23,13 +23,9 @@ function Item({ item, onPress }) {
             style={available ? styles.available : styles.notAvailable}
             onPress={handleAvailable}
           />
-          <TouchableOpacity 
-            onPress={() => onPress()}
-            style={styles.deleteButton}>
-            <Text style={styles.buttonText}>X</Text>
-          </TouchableOpacity>
         </View>
       </View>
+
     </View>
   )
 }

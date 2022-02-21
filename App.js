@@ -1,81 +1,92 @@
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, Button, View, FlatList, Modal } from 'react-native';
-import AddItem from './components/AddItem/AddItem';
-import Item from './components/Item/Item';
-import DeleteModal from './components/DeleteModal/DeleteModal';
+import { TouchableOpacity, View, Text } from 'react-native';
+import MainScreen from "./screens/MainScreen/MainScreen"
+import MyShipsScreen from './screens/MyShipsScreen/MyShipsScreen';
+import { StyleSheet } from "react-native";
 
 export default function App() {
-  const [textInput, setTextInput] = useState('')
-  const [itemList, setItemList] = useState([])
 
-  const [itemSelected, setItemSelected] = useState({})
-  const [modalVisible, setModalVisible] = useState(false)
+  const [currentPage, setCurrentPage] = useState(true)
+  const [pageName, setPageName] = useState("My Ships")
 
-  const handleChangeText = (text) => {
-    setTextInput(text)
-  }
+  const frigateList = [
+    {
+      value: "Ruby",
+      id: "01"
+    },
+    {
+      value: "Xeno Stinger",
+      id: "02"
+    },
+    {
+      value: "Mare Serenitatis",
+      id: "03"
+    },
+  ]
 
-  const handleOnPress = () => {
-    if (textInput == '' || textInput == ' ') {
-      setTextInput('')
+  const destroyerList = [
+    {
+      value: "Taurus",
+      id: "04"
+    },
+    {
+      value: "Eris I",
+      id: "05"
+    },
+    {
+      value: "Winger Hussar",
+      id: "06"
+    },
+  ]
+
+  const cruiserList = [
+    {
+      value: "Io",
+      id: "07"
+    },
+    {
+      value: "Chimera",
+      id: "08"
+    },
+    {
+      value: "Callisto",
+      id: "09"
+    },
+  ]
+
+  const handleSwitchScreen = () => {
+    if (currentPage == false) {
+      setCurrentPage(true)
+      setPageName("My Ships")
     } else {
-      setTextInput('')
-      setItemList([
-        ...itemList,
-        {
-          value: textInput,
-          id: Math.random().toString(),
-        },
-      ])
+      setCurrentPage(false)
+      setPageName("Home")
     }
   }
 
-  const handleOnDelete = (item) => () => {
-    setModalVisible(true)
-    setItemSelected(item)
-  }
-
-  const handleConfirmDelete = () => {
-    const { id } = itemSelected
-    setItemList(itemList.filter(item => item.id !== id))
-    setModalVisible(false)
-    setItemSelected({})
-  }
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.headline}>
-        Infinite Lagrange Builder
-      </Text>
-      <AddItem
-        textInput={textInput}
-        handleOnPress={handleOnPress}
-        handleChangeText={handleChangeText}
-      />
+    <View>
 
-      <FlatList
-        data={itemList}
-        renderItem={({ item }) => <Item item={item} onPress={handleOnDelete(item)} />}
-        keyExtractor={item => item.id}
-      />
-
-      <DeleteModal
-        modalVisible={modalVisible}
-        itemSelected={itemSelected}
-        handleConfirmDelete={handleConfirmDelete}
-      />
-
+      {currentPage ? <MainScreen frigateList={frigateList} destroyerList={destroyerList} cruiserList={cruiserList} /> : <MyShipsScreen frigateList={frigateList} destroyerList={destroyerList} cruiserList={cruiserList} />}
+      <TouchableOpacity onPress={handleSwitchScreen} style={styles.switchButton}>
+        <Text style={styles.switchButtonTitle}>Go To {pageName}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 30,
-    paddingTop: 70,
+  switchButton: {
+    alignSelf: "center",
+    backgroundColor: '#003049',
+    width: "40%",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    color: "#cacaca"
   },
-  headline: {
-    fontSize: 30,
-    color: '#003049'
+  switchButtonTitle: {
+    color: "#cacaca",
+    textAlign: "center"
   }
-});
+})
+
