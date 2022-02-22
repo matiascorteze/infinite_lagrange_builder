@@ -3,8 +3,19 @@ import { TouchableOpacity, View, Text } from 'react-native';
 import MainScreen from "./screens/MainScreen/MainScreen"
 import MyShipsScreen from './screens/MyShipsScreen/MyShipsScreen';
 import { StyleSheet } from "react-native";
+import Colors, { globalStyles } from './constants/Colors';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+import Fonts from './constants/Fonts';
+
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    Lato: require('./assets/fonts/Lato-Regular.ttf'),
+    [Fonts.titleFont]: require('./assets/fonts/Lato-Bold.ttf'),
+  })
+
 
   const [currentPage, setCurrentPage] = useState(true)
   const [pageName, setPageName] = useState("My Ships")
@@ -64,6 +75,8 @@ export default function App() {
     }
   }
 
+  if (!loaded) return <AppLoading />
+
   return (
     <View>
 
@@ -78,7 +91,7 @@ export default function App() {
 const styles = StyleSheet.create({
   switchButton: {
     alignSelf: "center",
-    backgroundColor: '#003049',
+    backgroundColor: Colors.primary,
     width: "40%",
     paddingVertical: 5,
     paddingHorizontal: 10,
@@ -86,7 +99,8 @@ const styles = StyleSheet.create({
   },
   switchButtonTitle: {
     color: "#cacaca",
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: Fonts.titleFont
   }
 })
 
