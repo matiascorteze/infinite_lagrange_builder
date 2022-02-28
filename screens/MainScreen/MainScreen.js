@@ -1,8 +1,15 @@
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import FoldList from "../../components/FoldList/FoldList";
+import ShipLists from "../../constants/ShipLists";
 
-function MainScreen({ frigateList, destroyerList, cruiserList }) {
+function MainScreen({ navigation }) {
+
+  const { frigateList, destroyerList, cruiserList } = ShipLists
+
+  const handlePress = () => {
+    navigation.navigate("My Ships")
+  }
 
   return (
     <View style={styles.container}>
@@ -24,7 +31,9 @@ function MainScreen({ frigateList, destroyerList, cruiserList }) {
         name={"Cruisers"}
         data={cruiserList}
       />
-
+      <TouchableOpacity style={styles.switchButton} onPress={handlePress}>
+        <Text style={styles.switchButtonTitle}>My Ships</Text>
+      </TouchableOpacity>
     </View>
   )
 }

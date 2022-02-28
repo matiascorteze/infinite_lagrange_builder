@@ -1,10 +1,17 @@
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import FullList from "../../components/FullList/FullList";
+import ShipLists from "../../constants/ShipLists";
 
-function MyShipsScreen({ frigateList, destroyerList, cruiserList }) {
+function MyShipsScreen({ navigation }) {
+
+  const { frigateList, destroyerList, cruiserList } = ShipLists
 
   const fullList = [...frigateList, ...destroyerList, ...cruiserList]
+
+  const handlePress = () => {
+    navigation.navigate("Home")
+  }
 
   return (
     <View style={styles.container}>
@@ -15,6 +22,10 @@ function MyShipsScreen({ frigateList, destroyerList, cruiserList }) {
       <FullList
         data={fullList}
       />
+
+      <TouchableOpacity style={styles.switchButton} onPress={handlePress}>
+        <Text style={styles.switchButtonTitle}>Home</Text>
+      </TouchableOpacity>
     </View>
   )
 }

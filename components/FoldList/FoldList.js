@@ -27,12 +27,12 @@ function FoldList({data, name}) {
       </View>
       {isVisible ? (
         <View>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => <Item item={item} />}
-          keyExtractor={item => item.id}
-        />
-      </View>
+          <FlatList
+            data={data}
+            renderItem={({ item }) => <Item item={item} />}
+            keyExtractor={item => item.id}
+          />
+        </View>
       ) : null}
 
     </View>

@@ -1,16 +1,19 @@
 import styles from "./styles";
-import { View, FlatList } from "react-native";
-import Item from "../Item/Item";
+import { View, FlatList, Text } from "react-native";
 
 function FullList({data}) {
+
+  let filteredData = data.map(a => a.value)
+
+  console.log(filteredData);
 
   return (
 
     <View style={styles.foldContainer}>
         <View>
         <FlatList
-          data={data}
-          renderItem={({ item }) => <Item item={item} />}
+          data={filteredData}
+          renderItem={({ item }) => <View style={styles.item}><Text>{item}</Text></View> }
           keyExtractor={item => item.id}
         />
       </View>

@@ -2,13 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   item: {
-    padding: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     marginVertical: 5,
     borderBottomColor: '#003049',
     borderBottomWidth: 1, 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    width: "100%"
   },
   itemAvailable: {
     backgroundColor: "#abddce",
@@ -28,20 +30,13 @@ const styles = StyleSheet.create({
   },
   available: {
     backgroundColor:'#90be6d',
-    width: 30,
-    height: 30,
-    marginRight: 20,
+    width: 15,
+    height: 15,
   },
   notAvailable: {
     backgroundColor:'#cacaca',
-    width: 30,
-    height: 30,
-    marginRight: 20,
-  },
-  deleteButton: {
-    backgroundColor:'#D62828',
-    width: 30,
-    height: 30,
+    width: 15,
+    height: 15,
   },
   buttonText: {
     textAlign: "center",
