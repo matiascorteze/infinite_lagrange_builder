@@ -1,47 +1,25 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+
   item: {
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    marginVertical: 5,
-    borderBottomColor: '#003049',
-    borderBottomWidth: 1, 
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: "100%"
+    paddingLeft: 0,
+    paddingRight: 5,
+    paddingBottom: 15,
   },
-  itemAvailable: {
-    backgroundColor: "#abddce",
-    borderBottomColor: '#003049',
-    padding: 10,
-    marginVertical: 5,
-    borderBottomWidth: 1, 
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+  topInfo: {
+    padding: 5,
+    backgroundColor: "#cacaca",
+    flexWrap: "wrap"
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  bottomInfo: {
+    padding: 5,
+    backgroundColor: "teal",
+    flexWrap: "wrap"
   },
-  available: {
-    backgroundColor:'#90be6d',
-    width: 15,
-    height: 15,
-  },
-  notAvailable: {
-    backgroundColor:'#cacaca',
-    width: 15,
-    height: 15,
-  },
-  buttonText: {
-    textAlign: "center",
-    textAlignVertical: "center",
-    color: "#EAE2B7"
+  picture: {
+    height: 40,
+    backgroundColor: "pink"
   }
 });
 

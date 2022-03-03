@@ -1,30 +1,96 @@
 export default {
   frigateList: [
     {
-      value: "Ruby",
-      id: "01"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Ruby",
+      variant: "Railgun [A]",
+      picture: "*PICTURE*",
+      type: "Frigate",
+      cp: 6,
+      maxActive: 10,
+      row: "Middle"
     },
     {
-      value: "Xeno Stinger",
-      id: "02"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Ruby",
+      variant: "Ion [C]",
+      picture: "*PICTURE*",
+      type: "Frigate",
+      cp: 6,
+      maxActive: 10,
+      row: "Middle"
     },
     {
-      value: "Mare Serenitatis",
-      id: "03"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Mare Serenitatis",
+      variant: "Missile [A]",
+      picture: "*PICTURE*",
+      type: "Frigate",
+      cp: 6,
+      maxActive: 10,
+      row: "Back"
+    },
+    {
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Carilion",
+      variant: "Special [C]",
+      picture: "*PICTURE*",
+      type: "Frigate",
+      cp: 40,
+      maxActive: 10,
+      row: "Front"
+    },
+    {
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "NOMA",
+      variant: "Support [C]",
+      picture: "*PICTURE*",
+      type: "Frigate",
+      cp: 5,
+      maxActive: 10,
+      row: "Back"
     },
   ],
   destroyerList: [
     {
-      value: "Taurus",
-      id: "04"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Taurus",
+      variant: "Offensive [A]",
+      picture: "*PICTURE*",
+      type: "Destroyer",
+      cp: 8,
+      maxActive: 10,
+      row: "Front"
     },
     {
-      value: "Eris I",
-      id: "05"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Taurus",
+      variant: "Assault [C]",
+      picture: "*PICTURE*",
+      type: "Destroyer",
+      cp: 8,
+      maxActive: 10,
+      row: "Front"
     },
     {
-      value: "Winger Hussar",
-      id: "06"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Eris I",
+      variant: "Heavy Cannon [C]",
+      picture: "*PICTURE*",
+      type: "Destroyer",
+      cp: 7,
+      maxActive: 10,
+      row: "Front"
+    },
+    {
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Winged Hussar",
+      variant: "Integrated [B]",
+      picture: "*PICTURE*",
+      type: "Destroyer",
+      cp: 6,
+      maxActive: 10,
+      row: "Front"
     },
   ],
   cruiserList: [

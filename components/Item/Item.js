@@ -15,8 +15,8 @@ function Item({ item }) {
   }
 
   return (
-    <View>
-      <View style={available ? styles.itemAvailable : styles.item}>
+    <View style={styles.item}>
+      {/* <View style={available ? styles.itemAvailable : styles.item}>
         <Text>{item.value}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
@@ -24,6 +24,25 @@ function Item({ item }) {
             onPress={handleAvailable}
           />
         </View>
+      </View> */}
+
+      <View style={styles.topInfo}>
+        <Text>
+          {item.name} 
+        </Text>
+        <Text>
+          {item.variant}
+        </Text>
+      </View>
+      <View style={styles.picture}>
+        <Text>
+          {item.picture}
+        </Text>
+      </View>
+      <View style={styles.bottomInfo}>
+        <Text>
+          {item.type} | CP: {item.cp} |  Max Active: {item.maxActive} | {item.row} Row
+        </Text>
       </View>
 
     </View>
