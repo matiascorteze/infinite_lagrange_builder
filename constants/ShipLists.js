@@ -95,16 +95,34 @@ export default {
   ],
   cruiserList: [
     {
-      value: "Io",
-      id: "07"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Io",
+      variant: "Assault Ion Cannon [A]",
+      picture: "*PICTURE*",
+      type: "Cruiser",
+      cp: 18,
+      maxActive: 8,
+      row: "Front"
     },
     {
-      value: "Chimera",
-      id: "08"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Chimera",
+      variant: "Heavy [A]",
+      picture: "*PICTURE*",
+      type: "Cruiser",
+      cp: 20,
+      maxActive: 8,
+      row: "Front"
     },
     {
-      value: "Callisto",
-      id: "09"
+      id: Math.floor(Math.random() * 9999) + 1,
+      name: "Callisto",
+      variant: "Cluster Torpedo Raid Ship [A]",
+      picture: "*PICTURE*",
+      type: "Cruiser",
+      cp: 20,
+      maxActive: 8,
+      row: "Back"
     },
   ]
 }

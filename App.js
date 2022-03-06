@@ -1,7 +1,7 @@
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import Fonts from './constants/Fonts';
-import AppNavigation from './navigation/AppNavigation';
+import MainNavigator from "./navigation"
 
 
 export default function App() {
@@ -14,6 +14,6 @@ export default function App() {
   if (!loaded) return <AppLoading />
 
   return (
-    <AppNavigation />
+    <MainNavigator />
   );
 }

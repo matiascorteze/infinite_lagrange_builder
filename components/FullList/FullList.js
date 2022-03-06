@@ -3,10 +3,6 @@ import { View, FlatList, Text } from "react-native";
 
 function FullList({data}) {
 
-  // let filteredData = data.map(a => a.value)
-
-  // console.log(filteredData);
-
   return (
 
     <View style={styles.foldContainer}>
@@ -15,7 +11,7 @@ function FullList({data}) {
           data={data}
           renderItem={({ item }) => 
             <View style={styles.item}>
-              <Text>{item.value}</Text>
+              <Text>{item.name}</Text>
             </View> }
           keyExtractor={item => item.id}
           numColumns={2}

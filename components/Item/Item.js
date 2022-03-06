@@ -1,6 +1,6 @@
 import {useState} from "react";
 import styles from "./styles";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View } from "react-native";
 
 function Item({ item }) {
 
@@ -16,15 +16,6 @@ function Item({ item }) {
 
   return (
     <View style={styles.item}>
-      {/* <View style={available ? styles.itemAvailable : styles.item}>
-        <Text>{item.value}</Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={available ? styles.available : styles.notAvailable}
-            onPress={handleAvailable}
-          />
-        </View>
-      </View> */}
 
       <View style={styles.topInfo}>
         <Text>

@@ -7,12 +7,15 @@ import Item from "../Item/Item";
 function FoldList({data, name}) {
 
   const [isVisible, setIsVisible] = useState(false)
+  const [caretStatus, setCaretStatus] = useState("caretdown")
 
   const handleVisible = () => {
     if (isVisible == true) {
       setIsVisible(false)
+      setCaretStatus("caretdown")
     } else {
       setIsVisible(true)
+      setCaretStatus("caretup")
     }
   }
 
@@ -23,7 +26,7 @@ function FoldList({data, name}) {
         <Text>
           {name}
         </Text>
-        <AntDesign name="caretdown" size={18} color="black" onPress={handleVisible}/>
+        <AntDesign name={caretStatus} size={18} color="black" onPress={handleVisible}/>
       </View>
       {isVisible ? (
         <View>
