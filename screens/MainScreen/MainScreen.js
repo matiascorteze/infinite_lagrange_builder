@@ -1,11 +1,12 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import FoldList from "../../components/FoldList/FoldList";
-import ShipLists from "../../constants/ShipLists";
+
+import { useSelector } from "react-redux";
 
 function MainScreen({ navigation }) {
 
-  const { frigateList, destroyerList, cruiserList } = ShipLists
+  const { frigateList, destroyerList, cruiserList } = useSelector(state => state.shiplists.ships)
 
   const handlePress = () => {
     navigation.navigate("My Ships")

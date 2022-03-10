@@ -3,12 +3,15 @@ import styles from "./styles";
 import FullList from "../../components/FullList/FullList";
 import ShipLists from "../../constants/ShipLists";
 
+import { useSelector } from "react-redux";
+
+
 function MyShipsScreen({ navigation }) {
 
-  const { frigateList, destroyerList, cruiserList } = ShipLists
-
-  const fullList = [...frigateList, ...destroyerList, ...cruiserList]
-
+  const myShips = useSelector(state => state.myShipsList.myships)
+  
+  let reduxShips = myShips[0]
+  
   const handlePress = () => {
     navigation.navigate("Home")
   }
@@ -20,7 +23,7 @@ function MyShipsScreen({ navigation }) {
       </Text>
 
       <FullList
-        data={fullList}
+        data={reduxShips}
       />
 
       <TouchableOpacity style={styles.switchButton} onPress={handlePress}>

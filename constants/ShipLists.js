@@ -1,7 +1,8 @@
 export default {
   frigateList: [
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      // id: Math.floor(Math.random() * 9999) + 1,
+      id: 1,
       name: "Ruby",
       variant: "Railgun [A]",
       picture: "*PICTURE*",
@@ -11,7 +12,7 @@ export default {
       row: "Middle"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 2,
       name: "Ruby",
       variant: "Ion [C]",
       picture: "*PICTURE*",
@@ -21,7 +22,7 @@ export default {
       row: "Middle"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 3,
       name: "Mare Serenitatis",
       variant: "Missile [A]",
       picture: "*PICTURE*",
@@ -31,7 +32,7 @@ export default {
       row: "Back"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 4,
       name: "Carilion",
       variant: "Special [C]",
       picture: "*PICTURE*",
@@ -41,7 +42,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 5,
       name: "NOMA",
       variant: "Support [C]",
       picture: "*PICTURE*",
@@ -53,7 +54,7 @@ export default {
   ],
   destroyerList: [
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 6,
       name: "Taurus",
       variant: "Offensive [A]",
       picture: "*PICTURE*",
@@ -63,7 +64,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 7,
       name: "Taurus",
       variant: "Assault [C]",
       picture: "*PICTURE*",
@@ -73,7 +74,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 8,
       name: "Eris I",
       variant: "Heavy Cannon [C]",
       picture: "*PICTURE*",
@@ -83,7 +84,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 9,
       name: "Winged Hussar",
       variant: "Integrated [B]",
       picture: "*PICTURE*",
@@ -95,7 +96,7 @@ export default {
   ],
   cruiserList: [
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 10,
       name: "Io",
       variant: "Assault Ion Cannon [A]",
       picture: "*PICTURE*",
@@ -105,7 +106,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 11,
       name: "Chimera",
       variant: "Heavy [A]",
       picture: "*PICTURE*",
@@ -115,7 +116,7 @@ export default {
       row: "Front"
     },
     {
-      id: Math.floor(Math.random() * 9999) + 1,
+      id: 12,
       name: "Callisto",
       variant: "Cluster Torpedo Raid Ship [A]",
       picture: "*PICTURE*",

@@ -4,13 +4,14 @@ const styles = StyleSheet.create({
 
   item: {
     paddingLeft: 0,
-    paddingRight: 5,
+    paddingRight: 0,
     paddingBottom: 15,
   },
   topInfo: {
     padding: 5,
     backgroundColor: "#cacaca",
-    flexWrap: "wrap"
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   bottomInfo: {
     padding: 5,
@@ -20,6 +21,19 @@ const styles = StyleSheet.create({
   picture: {
     height: 40,
     backgroundColor: "pink"
+  },
+  buttonContainer: {
+    margin: 5,
+  },
+  available: {
+    width: 20,
+    height: 20,
+    backgroundColor:'#90be6d'
+  },
+  notAvailable: {
+    width: 20,
+    height: 20,
+    backgroundColor:'black'
   }
 });
 

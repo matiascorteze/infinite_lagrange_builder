@@ -6,7 +6,6 @@ import Colors from "../constants/Colors";
 
 import { AntDesign } from '@expo/vector-icons';
 
-
 const Tab = createBottomTabNavigator()
 
 function TabNavigator() {

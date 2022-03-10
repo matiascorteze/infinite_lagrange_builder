@@ -1,8 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./styles";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 
-function Item({ item }) {
+function Item({ item, onPress }) {
 
   const [available, setAvailable] = useState(false)
 
@@ -18,12 +18,20 @@ function Item({ item }) {
     <View style={styles.item}>
 
       <View style={styles.topInfo}>
-        <Text>
-          {item.name} 
-        </Text>
-        <Text>
-          {item.variant}
-        </Text>
+        <View>
+          <Text>
+            {item.name}
+          </Text>
+          <Text>
+            {item.variant}
+          </Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={available ? styles.available : styles.notAvailable}
+            onPress={onPress}
+          />
+        </View>
       </View>
       <View style={styles.picture}>
         <Text>
