@@ -11,7 +11,7 @@ function FullList({data}) {
           data={data}
           renderItem={({ item }) => 
             <View style={styles.item}>
-              <Text>{item.name}</Text>
+              <Text>{item.name} {item.variant}</Text>
             </View> }
           keyExtractor={item => item.id}
           numColumns={2}

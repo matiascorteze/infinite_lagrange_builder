@@ -15,9 +15,6 @@ function FoldList({ data, name }) {
   const [isVisible, setIsVisible] = useState(false)
   const [caretStatus, setCaretStatus] = useState("caretdown")
 
-  const [currentShip, setCurrentShip] = useState({})
-  const [selectedShips, setSelectedShips] = useState([])
-
   const handleVisible = () => {
     if (isVisible == true) {
       setIsVisible(false)
@@ -28,16 +25,18 @@ function FoldList({ data, name }) {
     }
   }
 
+  let selectedShips = []
+
   const handleSelect = (item) => {
     let curShip = item
-    setCurrentShip(curShip)
-    if (selectedShips.some(item => item.id === currentShip.id)) {
 
+    if (!selectedShips.some(item => item.id === curShip.id)) {
+      selectedShips = [...selectedShips, item];
+      dispatch(addShip(selectedShips))
+      console.log(selectedShips);
     } else {
-      const newSelectedShips = [...selectedShips, item];
-      setSelectedShips(newSelectedShips)
+      alert("Already added");
     }
-    dispatch(addShip(selectedShips))
   }
 
   return (
