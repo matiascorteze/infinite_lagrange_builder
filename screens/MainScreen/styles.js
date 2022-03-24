@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   headline: {
     fontSize: 30,
-    color: '#003049'
+    color: Colors.primary
   },
   switchButton: {
     alignSelf: "center",
@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
     width: "40%",
     paddingVertical: 5,
     paddingHorizontal: 10,
-    color: "#cacaca"
+    color: Colors.secondary
   },
   switchButtonTitle: {
-    color: "#cacaca",
+    color: Colors.secondary,
     textAlign: "center",
     fontFamily: Fonts.titleFont
   }

@@ -32,6 +32,7 @@ function MainScreen({ navigation }) {
         name={"Cruisers"}
         data={cruiserList}
       />
+      
       <TouchableOpacity style={styles.switchButton} onPress={handlePress}>
         <Text style={styles.switchButtonTitle}>My Ships</Text>
       </TouchableOpacity>

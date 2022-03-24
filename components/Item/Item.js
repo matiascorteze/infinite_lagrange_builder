@@ -1,16 +1,17 @@
+import { AntDesign } from '@expo/vector-icons';
 import { useState } from "react";
 import styles from "./styles";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View } from "react-native";
 
-function Item({ item, onPress }) {
+function Item({ item, onPress, onRemove }) {
 
-  const [available, setAvailable] = useState(false)
+  const [status, setStatus] = useState(true)
 
-  const handleAvailable = () => {
-    if (available == true) {
-      setAvailable(false)
+  const handleStatus = () => {
+    if (status == true) {
+      setStatus(false)
     } else {
-      setAvailable(true)
+      setStatus(true)
     }
   }
 
@@ -26,20 +27,20 @@ function Item({ item, onPress }) {
             {item.variant}
           </Text>
         </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={available ? styles.available : styles.notAvailable}
-            onPress={onPress}
-          />
-        </View>
+
       </View>
       <View style={styles.picture}>
         <Text>
           {item.picture}
         </Text>
+        <View style={styles.buttonContainer}>
+          {status ?
+            <AntDesign name="pluscircleo" size={24} color="black" onPress={() => { onPress(); handleStatus() }} /> :
+            <AntDesign name="minuscircleo" size={24} color="black" onPress={() => { onRemove(); handleStatus() }} />}
+        </View>
       </View>
       <View style={styles.bottomInfo}>
-        <Text>
+        <Text style={styles.bottomText}>
           {item.type} | CP: {item.cp} |  Max Active: {item.maxActive} | {item.row} Row
         </Text>
       </View>

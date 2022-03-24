@@ -7,6 +7,7 @@ function FullList({data}) {
 
     <View style={styles.foldContainer}>
         <View>
+        
         <FlatList
           data={data}
           renderItem={({ item }) => 

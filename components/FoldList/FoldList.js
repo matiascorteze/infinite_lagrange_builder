@@ -4,9 +4,10 @@ import styles from "./styles";
 import { Text, View, FlatList } from "react-native";
 import Item from "../Item/Item";
 
-import { addShip } from '../../store/actions/myships.action';
+import { addShip } from '../../store/actions/addShip.action';
+import { removeShip } from '../../store/actions/removeShip.action';
 
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function FoldList({ data, name }) {
 
@@ -25,17 +26,25 @@ function FoldList({ data, name }) {
     }
   }
 
-  let selectedShips = []
+  const myShips = useSelector(state => state.myShipsList.myships)
 
   const handleSelect = (item) => {
     let curShip = item
 
-    if (!selectedShips.some(item => item.id === curShip.id)) {
-      selectedShips = [...selectedShips, item];
-      dispatch(addShip(selectedShips))
-      console.log(selectedShips);
+    if (!myShips.some(item => item.id === curShip.id)) {
+      dispatch(addShip(item))
     } else {
       alert("Already added");
+    }
+  }
+
+  const handleRemove = (item) => {
+    let curShip = item
+
+    if (myShips.some(item => item.id === curShip.id)) {
+      dispatch(removeShip(item))
+    } else {
+      alert("Already removed");
     }
   }
 
@@ -52,7 +61,7 @@ function FoldList({ data, name }) {
         <View>
           <FlatList
             data={data}
-            renderItem={({ item }) => <Item item={item} onPress={() => { handleSelect(item) }} />}
+            renderItem={({ item }) => <Item item={item} onPress={() => { handleSelect(item) }} onRemove={() => { handleRemove(item) }} />}
             keyExtractor={item => item.id}
           />
         </View>

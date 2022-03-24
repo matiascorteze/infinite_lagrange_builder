@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from '../../constants/Colors';
 
 const styles = StyleSheet.create({
 
@@ -9,31 +10,26 @@ const styles = StyleSheet.create({
   },
   topInfo: {
     padding: 5,
-    backgroundColor: "#cacaca",
+    backgroundColor: Colors.secondary,
     flexDirection: "row",
     justifyContent: "space-between"
   },
   bottomInfo: {
     padding: 5,
-    backgroundColor: "teal",
+    backgroundColor: Colors.primary,
     flexWrap: "wrap"
   },
   picture: {
-    height: 40,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 60,
     backgroundColor: "pink"
   },
   buttonContainer: {
     margin: 5,
   },
-  available: {
-    width: 20,
-    height: 20,
-    backgroundColor:'#90be6d'
-  },
-  notAvailable: {
-    width: 20,
-    height: 20,
-    backgroundColor:'black'
+  bottomText: {
+    color: Colors.secondary
   }
 });
 
