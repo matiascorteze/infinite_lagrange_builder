@@ -3,11 +3,12 @@ import { useState } from 'react';
 import styles from "./styles";
 import { Text, View, FlatList } from "react-native";
 import Item from "../Item/Item";
+import { useSelector, useDispatch } from "react-redux";
 
 import { addShip } from '../../store/actions/addShip.action';
 import { removeShip } from '../../store/actions/removeShip.action';
+import { insertShip, loadShips } from '../../db'
 
-import { useSelector, useDispatch } from "react-redux";
 
 function FoldList({ data, name }) {
 
@@ -28,17 +29,42 @@ function FoldList({ data, name }) {
 
   const myShips = useSelector(state => state.myShipsList.myships)
 
-  const handleSelect = (item) => {
-    let curShip = item
+  // const  handleSelect = (item) => {
+  //   let curShip = item
 
+  //   if (!myShips.some(item => item.id === curShip.id)) {
+  //     dispatch(addShip(item))
+  //   } else {
+  //     alert("Already added");
+  //   }
+  // }
+
+  const  handleSelect = async (item) => {
+    let curShip = item
+    
     if (!myShips.some(item => item.id === curShip.id)) {
+      
       dispatch(addShip(item))
+
+      const result = await insertShip(
+        item.name, 
+        item.variant, 
+        item.picture, 
+        item.type, 
+        item.cp, 
+        item.maxActive, 
+        item.row
+      )
+  
+      await loadShips()
+      console.log("***** SHIP ADDED *****");
+
     } else {
       alert("Already added");
     }
   }
 
-  const handleRemove = (item) => {
+  const handleRemove = async (item) => {
     let curShip = item
 
     if (myShips.some(item => item.id === curShip.id)) {

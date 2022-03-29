@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     width: "40%",
     paddingVertical: 5,
     paddingHorizontal: 10,
+    marginTop: 20,
     color: Colors.secondary
   },
   switchButtonTitle: {
