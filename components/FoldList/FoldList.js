@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { addShip } from '../../store/actions/addShip.action';
 import { removeShip } from '../../store/actions/removeShip.action';
-import { insertShip, loadShips } from '../../db'
+import { insertShip, loadShips, deleteSingleShip } from '../../db'
 
 
 function FoldList({ data, name }) {
@@ -28,16 +28,6 @@ function FoldList({ data, name }) {
   }
 
   const myShips = useSelector(state => state.myShipsList.myships)
-
-  // const  handleSelect = (item) => {
-  //   let curShip = item
-
-  //   if (!myShips.some(item => item.id === curShip.id)) {
-  //     dispatch(addShip(item))
-  //   } else {
-  //     alert("Already added");
-  //   }
-  // }
 
   const  handleSelect = async (item) => {
     let curShip = item
@@ -69,6 +59,19 @@ function FoldList({ data, name }) {
 
     if (myShips.some(item => item.id === curShip.id)) {
       dispatch(removeShip(item))
+
+      const result = await deleteSingleShip(
+        item.id,
+        item.name, 
+        item.variant, 
+        item.picture, 
+        item.type, 
+        item.cp, 
+        item.maxActive, 
+        item.row
+      )
+      console.log("***** SHIP REMOVED *****");
+
     } else {
       alert("Already removed");
     }
@@ -89,6 +92,7 @@ function FoldList({ data, name }) {
             data={data}
             renderItem={({ item }) => <Item item={item} onPress={() => { handleSelect(item) }} onRemove={() => { handleRemove(item) }} />}
             keyExtractor={item => item.id}
+            ListFooterComponent={<View style={{height: 100}}/>}
           />
         </View>
       ) : null}

@@ -54,6 +54,20 @@ export const loadShips = () => {
   return promise
 }
 
+export const deleteSingleShip = (id) => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(
+        `DELETE FROM myShips WHERE id=?`,
+        [id],
+        (_, result) => resolve(result),
+        (_, err) => reject(err),
+      )
+    })
+  })
+  return promise
+}
+
 export const deleteAllShips = () => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(tx => {

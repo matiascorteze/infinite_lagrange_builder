@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
   container: {
     padding: 30,
     paddingTop: 30,
+    paddingBottom: 30,
+    flex: 1,
   },
   headline: {
     fontSize: 30,
