@@ -22,8 +22,11 @@ const styles = StyleSheet.create({
   picture: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: 60,
-    backgroundColor: "pink"
+    height: 80,
+  },
+  pictureFrame: {
+    flex:1,
+    width: 214,
   },
   buttonContainer: {
     margin: 5,

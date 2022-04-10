@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
 import { useState } from "react";
 import styles from "./styles";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 
 function Item({ item, onPress, onRemove }) {
 
@@ -14,7 +14,7 @@ function Item({ item, onPress, onRemove }) {
       setStatus(true)
     }
   }
-
+  
   return (
     <View style={styles.item}>
 
@@ -30,9 +30,13 @@ function Item({ item, onPress, onRemove }) {
 
       </View>
       <View style={styles.picture}>
-        <Text>
-          {item.picture}
-        </Text>
+        <View>
+          <Image 
+            style={styles.pictureFrame}
+            resizeMode="contain"
+            source={item.picture}
+          />
+        </View>
         <View style={styles.buttonContainer}>
           {status ?
             <AntDesign name="pluscircleo" size={24} color="black" onPress={() => { onPress(); handleStatus() }} /> :
