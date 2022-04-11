@@ -37,6 +37,7 @@ function FoldList({ data, name }) {
       dispatch(addShip(item))
 
       const result = await insertShip(
+        item.id,
         item.name, 
         item.variant, 
         item.picture, 

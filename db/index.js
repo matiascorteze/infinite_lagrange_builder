@@ -7,7 +7,8 @@ export const init = () => {
     db.transaction((tx) => {
       tx.executeSql(
         `CREATE TABLE IF NOT EXISTS myShips (
-          id INTEGER PRIMARY KEY NOT NULL,
+          dbid INTEGER PRIMARY KEY NOT NULL,
+          id INTEGER NOT NULL,
           name TEXT NOT NULL,
           variant TEXT NOT NULL,
           picture TEXT NOT NULL,
@@ -26,12 +27,12 @@ export const init = () => {
   return promise
 }
 
-export const insertShip = (name, variant, picture, type, cp, maxActive, row) => {
+export const insertShip = (id, name, variant, picture, type, cp, maxActive, row) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(tx => {
       tx.executeSql(
-        `INSERT INTO myShips (name, variant, picture, type, cp, maxActive, row) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [name, variant, picture, type, cp, maxActive, row],
+        `INSERT INTO myShips (id, name, variant, picture, type, cp, maxActive, row) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [id, name, variant, picture, type, cp, maxActive, row],
         (_, result) => resolve(result),
         (_, err) => reject(err),
       )
@@ -58,8 +59,8 @@ export const deleteSingleShip = (id) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(tx => {
       tx.executeSql(
-        `DELETE FROM myShips WHERE id=${id}`,
-        [],
+        `DELETE FROM myShips WHERE id=?`,
+        [id],
         (_, result) => resolve(result),
         (_, err) => reject(err),
       )
