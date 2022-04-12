@@ -1,9 +1,8 @@
-import { Text, View, ScrollView, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import FoldList from "../../components/FoldList/FoldList";
 
 import { deleteAllShips, loadShips } from '../../db'
-
 
 import { useSelector } from "react-redux";
 

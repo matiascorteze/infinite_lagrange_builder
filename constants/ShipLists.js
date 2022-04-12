@@ -8,6 +8,7 @@ export default {
       picture: require("../img/frigate_ruby_a.png"),
       type: "Frigate",
       cp: 6,
+      currentActive: 0,
       maxActive: 10,
       row: "Middle"
     },
@@ -18,6 +19,7 @@ export default {
       picture: require("../img/frigate_ruby_b.png"),
       type: "Frigate",
       cp: 6,
+      currentActive: 0,
       maxActive: 10,
       row: "Middle"
     },
@@ -28,6 +30,7 @@ export default {
       picture: require("../img/frigate_serenitatis_a.png"),
       type: "Frigate",
       cp: 6,
+      currentActive: 0,
       maxActive: 10,
       row: "Back"
     },
@@ -38,6 +41,7 @@ export default {
       picture: require("../img/frigate_carilion_c.png"),
       type: "Frigate",
       cp: 40,
+      currentActive: 0,
       maxActive: 10,
       row: "Front"
     },
@@ -48,6 +52,7 @@ export default {
       picture: require("../img/frigate_noma_b.png"),
       type: "Frigate",
       cp: 5,
+      currentActive: 0,
       maxActive: 10,
       row: "Back"
     },
@@ -60,6 +65,7 @@ export default {
       picture: require("../img/destroyer_taurus_a.png"),
       type: "Destroyer",
       cp: 8,
+      currentActive: 0,
       maxActive: 10,
       row: "Front"
     },
@@ -70,6 +76,7 @@ export default {
       picture: require("../img/destroyer_taurus_b.png"),
       type: "Destroyer",
       cp: 8,
+      currentActive: 0,
       maxActive: 10,
       row: "Front"
     },
@@ -90,6 +97,7 @@ export default {
       picture: require("../img/destroyer_winged_a.png"),
       type: "Destroyer",
       cp: 6,
+      currentActive: 0,
       maxActive: 10,
       row: "Front"
     },
@@ -100,6 +108,7 @@ export default {
       picture: require("../img/destroyer_aldabra_a.png"),
       type: "Destroyer",
       cp: 8,
+      currentActive: 0,
       maxActive: 10,
       row: "Front"
     },
@@ -112,6 +121,7 @@ export default {
       picture: require("../img/cruiser_io_a.png"),
       type: "Cruiser",
       cp: 18,
+      currentActive: 0,
       maxActive: 8,
       row: "Front"
     },
@@ -122,6 +132,7 @@ export default {
       picture: require("../img/cruiser_chimera_a.png"),
       type: "Cruiser",
       cp: 20,
+      currentActive: 0,
       maxActive: 8,
       row: "Front"
     },
@@ -132,6 +143,7 @@ export default {
       picture: require("../img/cruiser_callisto_a.png"),
       type: "Cruiser",
       cp: 20,
+      currentActive: 0,
       maxActive: 8,
       row: "Back"
     },
@@ -152,6 +164,7 @@ export default {
       picture: require("../img/cruiser_predator_a.png"),
       type: "Cruiser",
       cp: 18,
+      currentActive: 0,
       maxActive: 8,
       row: "Back"
     }
